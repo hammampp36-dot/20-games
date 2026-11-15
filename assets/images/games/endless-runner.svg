@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-endless-runner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-endless-runner" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-endless-runner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <filter id="glow-endless-runner" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-endless-runner" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-endless-runner)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-endless-runner)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-endless-runner)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#f59e0b" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#ec4899" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#f59e0b" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#ec4899" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-endless-runner)">
+        <!-- Synthwave Sunset -->
+        <circle cx="300" cy="130" r="60" fill="url(#accent-endless-runner)" />
+        <line x1="230" y1="120" x2="370" y2="120" stroke="#08090d" stroke-width="4" />
+        <line x1="235" y1="135" x2="365" y2="135" stroke="#08090d" stroke-width="5" />
+        <line x1="245" y1="150" x2="355" y2="150" stroke="#08090d" stroke-width="6" />
+
+        <!-- Perspective Road -->
+        <polygon points="270,180 330,180 500,280 100,280" fill="rgba(30,27,75,0.7)" stroke="#ec4899" stroke-width="2" />
+        <line x1="300" y1="180" x2="300" y2="280" stroke="#f59e0b" stroke-width="3" stroke-dasharray="10 8" />
+
+        <!-- Runner silhouette -->
+        <g transform="translate(285, 205)">
+          <circle cx="15" cy="10" r="8" fill="#22d3ee" />
+          <line x1="15" y1="18" x2="15" y2="35" stroke="#22d3ee" stroke-width="4" />
+          <line x1="15" y1="35" x2="5" y2="52" stroke="#22d3ee" stroke-width="4" />
+          <line x1="15" y1="35" x2="28" y2="52" stroke="#22d3ee" stroke-width="4" />
+        </g>
+      </g>
+      <text x="300" y="330" font-family="'Space Grotesk', monospace" font-size="16" fill="#fed7aa" text-anchor="middle" letter-spacing="4">SUPERSONIC SYNTHWAVE DASH</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

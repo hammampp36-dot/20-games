@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-tic-tac-toe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-tic-tac-toe" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-tic-tac-toe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="glow-tic-tac-toe" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-tic-tac-toe" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-tic-tac-toe)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-tic-tac-toe)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-tic-tac-toe)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#3b82f6" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#06b6d4" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#3b82f6" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#06b6d4" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-tic-tac-toe)" transform="translate(190, 75)">
+        <!-- Grid lines -->
+        <line x1="80" y1="10" x2="80" y2="170" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="140" y1="10" x2="140" y2="170" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="10" y1="65" x2="210" y2="65" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="10" y1="120" x2="210" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- X -->
+        <g stroke="#38bdf8" stroke-width="6" stroke-linecap="round">
+          <line x1="28" y1="22" x2="62" y2="52" />
+          <line x1="62" y1="22" x2="28" y2="52" />
+        </g>
+
+        <!-- O -->
+        <circle cx="110" cy="92" r="18" fill="none" stroke="#ec4899" stroke-width="6" />
+
+        <!-- X winning combo -->
+        <g stroke="#38bdf8" stroke-width="6" stroke-linecap="round">
+          <line x1="158" y1="132" x2="192" y2="162" />
+          <line x1="192" y1="132" x2="158" y2="162" />
+          <line x1="158" y1="22" x2="192" y2="52" />
+          <line x1="192" y1="22" x2="158" y2="52" />
+        </g>
+      </g>
+      <text x="300" y="315" font-family="'Space Grotesk', monospace" font-size="16" fill="#93c5fd" text-anchor="middle" letter-spacing="4">NEON TACTICAL DUEL</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

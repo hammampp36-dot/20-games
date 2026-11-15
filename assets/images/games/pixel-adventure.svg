@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-pixel-adventure" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-pixel-adventure" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-pixel-adventure" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="glow-pixel-adventure" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-pixel-adventure" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-pixel-adventure)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-pixel-adventure)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-pixel-adventure)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#c084fc" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#f59e0b" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#c084fc" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#f59e0b" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-pixel-adventure)" transform="translate(170, 60)">
+        <!-- Retro Castle Dungeon -->
+        <rect x="10" y="180" width="240" height="30" fill="#334155" stroke="#64748b" stroke-width="2" />
+        <!-- Floating Gem Relic -->
+        <polygon points="130,50 155,80 130,110 105,80" fill="#fbbf24" stroke="#fef08a" stroke-width="3" />
+        <circle cx="130" cy="80" r="10" fill="#ffffff" opacity="0.8" />
+
+        <!-- 8-Bit Pixel Knight -->
+        <g transform="translate(60, 115)">
+          <!-- Helmet -->
+          <rect x="15" y="0" width="30" height="25" fill="#c084fc" />
+          <rect x="25" y="8" width="18" height="6" fill="#18181b" />
+          <!-- Armor body -->
+          <rect x="12" y="25" width="36" height="30" fill="#7e22ce" />
+          <!-- Sword -->
+          <rect x="52" y="10" width="8" height="45" fill="#f8fafc" stroke="#38bdf8" stroke-width="1.5" />
+          <rect x="44" y="38" width="24" height="6" fill="#fbbf24" />
+          <!-- Legs -->
+          <rect x="15" y="55" width="12" height="15" fill="#581c87" />
+          <rect x="33" y="55" width="12" height="15" fill="#581c87" />
+        </g>
+      </g>
+      <text x="300" y="325" font-family="'Space Grotesk', monospace" font-size="16" fill="#f3e8ff" text-anchor="middle" letter-spacing="4">LEGEND OF THE RETRO REALM</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-minesweeper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-minesweeper" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-minesweeper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+    <filter id="glow-minesweeper" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-minesweeper" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-minesweeper)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-minesweeper)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-minesweeper)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#06b6d4" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#ef4444" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#06b6d4" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#ef4444" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-minesweeper)" transform="translate(180, 60)">
+        <rect x="0" y="0" width="240" height="210" rx="12" fill="#0f172a" stroke="#06b6d4" stroke-width="2" />
+        <!-- Grid Cells -->
+        <rect x="15" y="15" width="60" height="55" rx="6" fill="#1e293b" />
+        <text x="45" y="52" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#38bdf8" text-anchor="middle">1</text>
+
+        <rect x="90" y="15" width="60" height="55" rx="6" fill="#1e293b" />
+        <text x="120" y="52" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#10b981" text-anchor="middle">2</text>
+
+        <rect x="165" y="15" width="60" height="55" rx="6" fill="#1e293b" />
+        <text x="195" y="52" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#ef4444" text-anchor="middle">3</text>
+
+        <!-- Mine Cell -->
+        <rect x="90" y="85" width="60" height="55" rx="6" fill="#881337" stroke="#f43f5e" stroke-width="2" />
+        <circle cx="120" cy="112" r="14" fill="#18181b" stroke="#f43f5e" stroke-width="2" />
+        <line x1="102" y1="112" x2="138" y2="112" stroke="#fb7185" stroke-width="3" />
+        <line x1="120" y1="94" x2="120" y2="130" stroke="#fb7185" stroke-width="3" />
+
+        <!-- Flag Cell -->
+        <rect x="15" y="85" width="60" height="55" rx="6" fill="#1e293b" />
+        <polygon points="38,98 55,108 38,118" fill="#ef4444" />
+        <line x1="38" y1="98" x2="38" y2="130" stroke="#ffffff" stroke-width="3" />
+      </g>
+      <text x="300" y="325" font-family="'Space Grotesk', monospace" font-size="16" fill="#bae6fd" text-anchor="middle" letter-spacing="4">QUANTUM MINE DETECTION</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

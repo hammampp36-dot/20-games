@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-tetris" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-tetris" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-tetris" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="glow-tetris" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-tetris" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-tetris)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-tetris)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-tetris)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#a855f7" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#06b6d4" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#a855f7" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#06b6d4" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-tetris)" transform="translate(180, 70)">
+        <!-- T Piece -->
+        <rect x="80" y="20" width="36" height="36" rx="4" fill="#c084fc" stroke="#f3e8ff" stroke-width="1.5" />
+        <rect x="44" y="56" width="36" height="36" rx="4" fill="#a855f7" stroke="#f3e8ff" stroke-width="1.5" />
+        <rect x="80" y="56" width="36" height="36" rx="4" fill="#a855f7" stroke="#f3e8ff" stroke-width="1.5" />
+        <rect x="116" y="56" width="36" height="36" rx="4" fill="#a855f7" stroke="#f3e8ff" stroke-width="1.5" />
+
+        <!-- I Piece (Cyan) -->
+        <rect x="180" y="40" width="36" height="36" rx="4" fill="#22d3ee" stroke="#cffafe" stroke-width="1.5" />
+        <rect x="180" y="76" width="36" height="36" rx="4" fill="#06b6d4" stroke="#cffafe" stroke-width="1.5" />
+        <rect x="180" y="112" width="36" height="36" rx="4" fill="#0891b2" stroke="#cffafe" stroke-width="1.5" />
+
+        <!-- L Piece (Orange) -->
+        <rect x="10" y="120" width="36" height="36" rx="4" fill="#fb923c" stroke="#ffedd5" stroke-width="1.5" />
+        <rect x="10" y="156" width="36" height="36" rx="4" fill="#f97316" stroke="#ffedd5" stroke-width="1.5" />
+        <rect x="46" y="156" width="36" height="36" rx="4" fill="#ea580c" stroke="#ffedd5" stroke-width="1.5" />
+
+        <!-- Base row clears -->
+        <rect x="82" y="156" width="36" height="36" rx="4" fill="#10b981" opacity="0.9" />
+        <rect x="118" y="156" width="36" height="36" rx="4" fill="#3b82f6" opacity="0.9" />
+        <rect x="154" y="156" width="36" height="36" rx="4" fill="#ec4899" opacity="0.9" />
+        <rect x="190" y="156" width="36" height="36" rx="4" fill="#eab308" opacity="0.9" />
+      </g>
+      <text x="300" y="325" font-family="'Space Grotesk', monospace" font-size="16" fill="#e9d5ff" text-anchor="middle" letter-spacing="4">TETRIS LINE CLEAR x4</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

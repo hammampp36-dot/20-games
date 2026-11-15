@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAMMA ARCADE | PS2 Dark Edition • 20 Game Edukasi &amp; Retro</title>
+
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Space Grotesk, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- PS2 Dark Theme & Responsive Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- Ambient Atmospheric Lighting (PS2 Ethereal Void & Pillars) -->
+  <div class="bg-ambient">
+    <div class="ambient-glow ambient-glow-1"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
+    <div class="ambient-glow ambient-glow-3"></div>
+    <canvas id="particle-canvas"></canvas>
+  </div>
+  <div class="bg-noise"></div>
+
+  <!-- Page Main Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- ==========================================================================
+         A. NAVIGATION BAR (PS2 BIOS Header)
+         ========================================================================== -->
+    <header class="site-header">
+      <div class="container navbar">
+        <!-- Logo -->
+        <a href="#home" class="brand" aria-label="HAMMA ARCADE Home">
+          <div class="brand-icon-wrapper">
+            <img src="assets/icons/logo.svg" alt="HAMMA ARCADE Logo" width="44" height="44" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">HAMMA<span>ARCADE</span></span>
+            <span class="brand-subtitle">PS2 DARK EDITION // BROWSER</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active"><i data-lucide="home"></i> Beranda</a></li>
+            <li><a href="#games" class="nav-link"><i data-lucide="gamepad-2"></i> Semua Game</a></li>
+            <li><a href="#categories" class="nav-link"><i data-lucide="layout-grid"></i> Kategori Edukasi</a></li>
+            <li><a href="#leaderboard" class="nav-link trigger-leaderboard"><i data-lucide="trophy"></i> Papan Skor</a></li>
+            <li><a href="#settings" class="nav-link trigger-settings"><i data-lucide="settings"></i> Pengaturan</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Side Nav Actions -->
+        <div class="nav-actions">
+          <span class="badge badge-ps2-slot" style="display: none; @media(min-width: 768px){display:inline-flex;}">
+            <span class="pulse-dot" style="width: 6px; height: 6px; background: #00f0ff; border-radius: 50%;"></span>
+            SLOT 1: READY
+          </span>
+          <a href="#games" class="btn btn-secondary btn-sm" id="nav-quick-play">
+            <i data-lucide="zap"></i> Main Cepat
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+            <div class="nav-toggle-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-menu-list">
+        <li><a href="#home" class="mobile-menu-link active"><i data-lucide="home"></i> Beranda</a></li>
+        <li><a href="#games" class="mobile-menu-link"><i data-lucide="gamepad-2"></i> Semua 20 Game</a></li>
+        <li><a href="#categories" class="mobile-menu-link"><i data-lucide="layout-grid"></i> Kategori Edukasi</a></li>
+        <li><a href="#leaderboard" class="mobile-menu-link trigger-leaderboard"><i data-lucide="trophy"></i> Papan Skor</a></li>
+        <li><a href="#settings" class="mobile-menu-link trigger-settings"><i data-lucide="settings"></i> Pengaturan</a></li>
+      </ul>
+      <div class="mobile-drawer-footer" style="margin-top: auto;">
+        <a href="#games" class="btn btn-primary" style="width: 100%;">
+          <i data-lucide="play"></i> Jelajahi 20 Game
+        </a>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         B. HERO SECTION (PS2 BIOS Monolith & Memory Card Showcase)
+         ========================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <div class="ps2-system-badge">
+            <span class="pulse-dot"></span>
+            <span>PLAYSTATION®2 BROWSER // 20 GAME EDUKASI &amp; ARCADE</span>
+          </div>
+
+          <h1 class="hero-title">
+            MAIN. ASAH OTAK.<br />
+            <span class="hero-title-highlight">MENANGKAN.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Selamat datang di <strong>HAMMA ARCADE</strong> edisi PS2 Dark Retro. Platform browser gaming terintegrasi dengan 20 modul permainan yang melatih logika, matematika, bahasa, dan kecepatan reaksi motorik dengan visual memori card bernuansa neon cyan.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#games" class="btn btn-primary">
+              <i data-lucide="gamepad-2"></i> Jelajahi 20 Game
+            </a>
+            <button type="button" class="btn btn-secondary" id="hero-play-featured">
+              <i data-lucide="sparkles" style="color: var(--ps2-cyan);"></i> Game Unggulan
+            </button>
+          </div>
+
+          <!-- PlayStation Controller Button Glyphs Bar -->
+          <div class="ps2-glyph-bar">
+            <span>Kategori Kontrol:</span>
+            <span class="glyph-icon glyph-triangle">△ Logika</span>
+            <span class="glyph-icon glyph-circle">○ Sains</span>
+            <span class="glyph-icon glyph-cross">✕ Matematika</span>
+            <span class="glyph-icon glyph-square">□ Bahasa</span>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: PS2 Memory Card Spotlight -->
+        <div class="hero-showcase">
+          <div class="ps2-card-frame">
+            <div class="ps2-card-header">
+              <span>MEMORY CARD (8MB) // SLOT 01</span>
+              <span class="status-pill"><span class="status-dot"></span> Fase 2: Interactive</span>
+            </div>
+
+            <div class="featured-thumb-wrapper">
+              <img src="assets/images/games/pixel-adventure.svg" alt="Pixel Adventure Featured Spotlight" id="hero-featured-img" />
+            </div>
+
+            <div class="featured-details">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ps2-cyan); text-transform: uppercase;">
+                  Logika &bull; Pemecahan Masalah
+                </span>
+                <span style="color: #fbbf24; font-size: 0.82rem; font-weight: 700;">★ 5.0 (350K Plays)</span>
+              </div>
+              <h2 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 6px; color: #fff;">Pixel Adventure</h2>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 18px;">
+                Pandu kesatria piksel menjelajahi kastil bawah tanah, mengumpulkan prisma koin, dan memecahkan jalur labirin dengan navigasi taktis.
+              </p>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <button type="button" class="btn btn-primary btn-sm" id="featured-card-btn">
+                  <i data-lucide="play"></i> Mainkan Sekarang
+                </button>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+                  Size: 320 KB
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         C. STATISTICS SECTION (PS2 Memory Card HUD)
+         ========================================================================== -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <!-- Stat 1 -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i data-lucide="gamepad-2"></i>
+            </div>
+            <div>
+              <span class="stat-value">20</span>
+              <span class="stat-label">Modul Game Lengkap</span>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i data-lucide="layers"></i>
+            </div>
+            <div>
+              <span class="stat-value">4</span>
+              <span class="stat-label">Bidang Edukasi Utama</span>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i data-lucide="cpu"></i>
+            </div>
+            <div>
+              <span class="stat-value">8 MB</span>
+              <span class="stat-label">Virtual Memory Card</span>
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i data-lucide="check-circle-2"></i>
+            </div>
+            <div>
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Fase 2: Interactive Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         D. SEARCH AND CATEGORIES (PS2 Edu Filters)
+         ========================================================================== -->
+    <section class="controls-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">KATALOG &amp; FILTER EDUKASI</span>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 800; margin-bottom: 8px;">
+            Pilih Modul <span class="text-gradient">Memory Card</span>
+          </h2>
+          <p style="color: var(--text-secondary); max-width: 580px; margin: 0 auto; font-size: 0.95rem;">
+            Saring permainan berdasarkan fokus kemampuan: Logika, Matematika, Bahasa, atau Sains &amp; Refleks dengan pencarian instan.
+          </p>
+        </div>
+
+        <!-- Filter Controls Bar -->
+        <div class="filter-bar-wrapper">
+          <div class="filter-top-row">
+            <!-- Search Input -->
+            <div class="search-input-box">
+              <i data-lucide="search" class="search-icon"></i>
+              <input 
+                type="text" 
+                id="game-search-input" 
+                class="search-input" 
+                placeholder="Cari judul game, fokus edukasi, atau tombol... (Ketik '/' untuk fokus)" 
+                autocomplete="off" 
+                aria-label="Cari game"
+              />
+              <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Hapus pencarian">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- Sort Selector -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 0.85rem; color: var(--text-muted); white-space: nowrap;">Urutkan:</span>
+              <select id="sort-select" class="sort-select" aria-label="Urutkan game">
+                <option value="featured">Game Unggulan</option>
+                <option value="rating">Nilai Tertinggi ★</option>
+                <option value="plays">Paling Sering Dimainkan</option>
+                <option value="az">Abjad (A - Z)</option>
+                <option value="za">Abjad (Z - A)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Category Pills Row -->
+          <div class="category-pills-row" id="category-pills-row" role="tablist">
+            <!-- Populated dynamically by js/search.js -->
+          </div>
+
+          <!-- Results Indicator -->
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+            <span id="results-count">Menampilkan 20 game</span>
+            <button type="button" id="reset-filters-btn" style="background: none; border: none; color: var(--ps2-cyan); cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+              <i data-lucide="rotate-ccw" style="width: 13px; height: 13px;"></i> Reset Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         E. GAMES GRID (20 PS2 Memory Card Tiles)
+         ========================================================================== -->
+    <section class="games-grid-section" id="games">
+      <div class="container">
+        <div class="games-grid" id="games-grid">
+          <!-- Rendered dynamically via js/search.js from js/games-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         F. FOOTER (PS2 System End Bar)
+         ========================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Brand Column -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="#home" class="brand">
+              <div class="brand-icon-wrapper">
+                <img src="assets/icons/logo.svg" alt="HAMMA ARCADE Logo" width="36" height="36" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title">HAMMA<span>ARCADE</span></span>
+                <span class="brand-subtitle">PS2 DARK EDITION</span>
+              </div>
+            </a>
+            <p class="footer-desc">
+              Platform browser game edukasi &amp; retro arcade dengan atmosfer konsol PS2 klasik. Dirancang untuk mengasah kecerdasan kognitif dengan 20 mini-game interaktif.
+            </p>
+            <div class="system-status">
+              <span class="status-indicator"></span>
+              <span>PS2 BIOS Online • 20/20 Slot Memory Card Aktif</span>
+            </div>
+          </div>
+
+          <!-- Bidang Edukasi Column -->
+          <div>
+            <h4 class="footer-nav-title">Kategori Edukasi</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#games" class="footer-nav-link" data-nav-category="Logika">△ Logika &amp; Pemecahan Masalah</a></li>
+              <li><a href="#games" class="footer-nav-link" data-nav-category="Matematika">✕ Matematika &amp; Aritmatika</a></li>
+              <li><a href="#games" class="footer-nav-link" data-nav-category="Bahasa">□ Bahasa &amp; Kosakata</a></li>
+              <li><a href="#games" class="footer-nav-link" data-nav-category="Sains & Refleks">○ Sains, Fisika &amp; Refleks</a></li>
+            </ul>
+          </div>
+
+          <!-- Navigasi Sistem Column -->
+          <div>
+            <h4 class="footer-nav-title">Sistem Platform</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#leaderboard" class="footer-nav-link trigger-leaderboard">Papan Skor Global</a></li>
+              <li><a href="#settings" class="footer-nav-link trigger-settings">Pengaturan Audio &amp; Tema</a></li>
+              <li><a href="games/README.md" class="footer-nav-link" target="_blank">Spesifikasi Engine</a></li>
+              <li><a href="games/placeholder.html" class="footer-nav-link">Arena Kabinet Layar Penuh</a></li>
+            </ul>
+          </div>
+
+          <!-- Status Arsitektur Column -->
+          <div>
+            <h4 class="footer-nav-title">Status Progres</h4>
+            <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
+              Semua 20 permainan telah dinaikkan ke <strong>Fase 2: Interactive</strong> dan dapat dimainkan seketika di peramban.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="badge badge-ps2-slot">HTML5 Canvas</span>
+              <span class="badge badge-ps2-slot">Web Audio SFX</span>
+              <span class="badge badge-ps2-slot">Touch D-Pad</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 HAMMA ARCADE (PS2 Dark Edition). Dibuat untuk menghidupkan nostalgia bermain sambil belajar.</p>
+          <div style="display: flex; gap: 18px;">
+            <a href="#home" style="color: var(--text-muted); text-decoration: none;">Kembali ke Atas ↑</a>
+            <a href="#games" style="color: var(--text-muted); text-decoration: none;">Daftar 20 Game</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================================================
+       G. MODAL DIALOGS
+       ========================================================================== -->
+
+  <!-- 1. Live Interactive PS2 Game Modal -->
+  <div class="modal-backdrop" id="game-preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-game-title">
+    <div class="modal-dialog" style="max-width: 680px; background: #060913; border: 1.5px solid var(--ps2-cyan); box-shadow: 0 20px 70px rgba(0,0,0,0.95), 0 0 40px rgba(0,240,255,0.35);">
+      <!-- Modal Header Bar -->
+      <div style="background: rgba(14, 23, 46, 0.95); border-bottom: 1px solid var(--border-subtle); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="status-dot" style="width: 8px; height: 8px; background: #00f0ff; box-shadow: 0 0 10px #00f0ff; border-radius: 50%;"></span>
+          <div>
+            <h3 class="modal-title" id="preview-game-title" style="font-size: 1.25rem; margin: 0; line-height: 1.2;">Game Title</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ps2-cyan);" id="preview-game-category">LOGIKA &bull; KONTROL AKTIF</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <!-- Live Score HUD -->
+          <div style="background: rgba(0,0,0,0.5); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(0,240,255,0.25); font-family: var(--font-mono); font-size: 0.84rem;">
+            SKOR: <strong id="modal-active-score" style="color: #00f0ff;">0</strong> &bull; BEST: <strong id="modal-active-best" style="color: #fbbf24;">0</strong>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" id="modal-restart-btn" style="padding: 5px 12px;" aria-label="Restart Game">
+            <i data-lucide="rotate-ccw" style="width: 14px; height: 14px;"></i> Ulangi
+          </button>
+          <a href="games/placeholder.html" class="btn btn-secondary btn-sm" id="preview-standalone-btn" style="padding: 5px 12px;" aria-label="Buka Arena Layar Penuh">
+            <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i> Layar Penuh
+          </a>
+          <button type="button" class="modal-close-btn" style="position: static; width: 32px; height: 32px;" aria-label="Tutup dialog">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Game Screen Viewport -->
+      <div class="modal-header-visual" id="modal-screen-container" style="min-height: 380px; display: flex; align-items: center; justify-content: center; position: relative; background: #04060c;">
+        <canvas id="modal-game-canvas" width="600" height="380" style="max-width: 100%; height: auto; border-radius: 4px; display: block;"></canvas>
+      </div>
+
+      <!-- On-Screen Virtual Gamepad & Instructions Bar -->
+      <div style="background: rgba(10, 16, 32, 0.95); border-top: 1px solid var(--border-subtle); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 2px;">
+          <span style="color: #fff; font-weight: 600;"><i data-lucide="keyboard" style="width: 14px; height: 14px; display: inline-block;"></i> Kontrol Keyboard:</span>
+          <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ps2-cyan);" id="modal-controls-hint">Gunakan Panah / WASD &amp; Spasi</span>
+        </div>
+
+        <!-- Virtual Controls for Touch / Quick Tap -->
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <!-- Compact D-Pad -->
+          <div style="display: grid; grid-template-columns: repeat(3, 34px); grid-template-rows: repeat(3, 34px); gap: 3px;">
+            <div></div>
+            <button class="dpad-btn" id="m-dpad-up" aria-label="Atas"><i data-lucide="chevron-up" style="width: 16px; height: 16px;"></i></button>
+            <div></div>
+            <button class="dpad-btn" id="m-dpad-left" aria-label="Kiri"><i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i></button>
+            <div style="background: rgba(255,255,255,0.02); border-radius: 4px;"></div>
+            <button class="dpad-btn" id="m-dpad-right" aria-label="Kanan"><i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i></button>
+            <div></div>
+            <button class="dpad-btn" id="m-dpad-down" aria-label="Bawah"><i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i></button>
+            <div></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 8px;">
+            <button class="action-btn-circle" id="m-btn-action-a" style="width: 44px; height: 44px; font-size: 0.95rem;" aria-label="Aksi A">A</button>
+            <button class="action-btn-circle" id="m-btn-action-b" style="width: 44px; height: 44px; font-size: 0.95rem; background: linear-gradient(135deg, #0070d8, #00f0ff);" aria-label="Aksi B">B</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Leaderboard Modal -->
+  <div class="modal-backdrop" id="leaderboard-modal" role="dialog" aria-modal="true" aria-labelledby="leaderboard-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Tutup dialog">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-body" style="padding-top: 28px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+          <div class="stat-icon" style="width: 40px; height: 40px; font-size: 1.1rem;">
+            <i data-lucide="trophy"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="leaderboard-title" style="margin-bottom: 0;">Papan Skor PS2</h3>
+            <span style="font-size: 0.78rem; color: var(--ps2-cyan); font-family: var(--font-mono);">TOP CHAMPIONS // MEMORY CARD SAVE RECORDS</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; margin: 18px 0; max-height: 360px; overflow-y: auto;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 800; color: #facc15; font-size: 1.1rem;">#1</span>
+              <div>
+                <strong style="color: #fff;">NeonMaster</strong>
+                <div style="font-size: 0.74rem; color: var(--text-muted);">Tetris (Geometri) &bull; Rekor Sempurna</div>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--ps2-cyan);">99,850 PTS</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 800; color: #cbd5e1; font-size: 1.1rem;">#2</span>
+              <div>
+                <strong style="color: #fff;">CyberViper</strong>
+                <div style="font-size: 0.74rem; color: var(--text-muted);">Snake Game &bull; 85 Kemenangan</div>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--ps2-cyan);">84,310 PTS</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-weight: 800; color: #f97316; font-size: 1.1rem;">#3</span>
+              <div>
+                <strong style="color: #fff;">PixelKnight</strong>
+                <div style="font-size: 0.74rem; color: var(--text-muted);">Pixel Adventure &bull; Juara Labirin</div>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--ps2-cyan);">76,420 PTS</span>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 18px;">
+          <button type="button" class="btn btn-secondary modal-dismiss-btn" style="width: 100%;">
+            Tutup Papan Skor
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Settings Modal -->
+  <div class="modal-backdrop" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" aria-label="Tutup dialog">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-body" style="padding-top: 28px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+          <div class="stat-icon" style="width: 40px; height: 40px; font-size: 1.1rem;">
+            <i data-lucide="settings"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="settings-title" style="margin-bottom: 0;">Pengaturan PS2 Dark</h3>
+            <span style="font-size: 0.78rem; color: var(--ps2-cyan); font-family: var(--font-mono);">SISTEM AUDIO &amp; VISUAL</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; margin: 20px 0;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.92rem;">Efek Suara Retro (Web Audio SFX)</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Suara sintetis chiptune saat tombol dan aksi game diklik</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="sound-toggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.92rem;">Efek Pendaran Neon PS2</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Pilar partikel siber &amp; aura biru BIOS di latar belakang</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="ambient-toggle" checked onchange="document.querySelector('.bg-ambient').style.display = this.checked ? 'block' : 'none';" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary modal-dismiss-btn" style="width: 100%;">
+            Simpan &amp; Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/games-data.js"></script>
+  <script src="js/arcade-games-runner.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

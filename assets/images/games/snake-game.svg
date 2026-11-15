@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-snake-game" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-snake-game" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-snake-game" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="glow-snake-game" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-snake-game" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-snake-game)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-snake-game)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-snake-game)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#10b981" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#06b6d4" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#10b981" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#06b6d4" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <!-- Cyber Matrix Snake -->
+      <g filter="url(#glow-snake-game)">
+        <!-- Grid dots -->
+        <circle cx="200" cy="190" r="14" fill="#10b981" />
+        <circle cx="235" cy="190" r="14" fill="#10b981" />
+        <circle cx="270" cy="190" r="14" fill="#10b981" />
+        <circle cx="305" cy="190" r="14" fill="#10b981" />
+        <circle cx="340" cy="190" r="14" fill="#10b981" />
+        <circle cx="340" cy="155" r="14" fill="#34d399" />
+        <circle cx="340" cy="120" r="14" fill="#34d399" />
+        <circle cx="375" cy="120" r="16" fill="#6ee7b7" />
+        <!-- Eyes -->
+        <circle cx="380" cy="115" r="3.5" fill="#064e3b" />
+        <circle cx="380" cy="125" r="3.5" fill="#064e3b" />
+        <!-- Energy Apple Orb -->
+        <circle cx="440" cy="120" r="15" fill="#ef4444" />
+        <circle cx="440" cy="120" r="6" fill="#fecaca" />
+      </g>
+      <text x="300" y="320" font-family="'Space Grotesk', monospace" font-size="16" fill="#a7f3d0" text-anchor="middle" letter-spacing="4">SCORE MATRIX • 9,450</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

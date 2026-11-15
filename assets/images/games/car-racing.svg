@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-car-racing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e17" />
+      <stop offset="50%" stop-color="#121526" />
+      <stop offset="100%" stop-color="#08090d" />
+    </linearGradient>
+    <radialGradient id="radial-car-racing" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent-car-racing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="glow-car-racing" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid-car-racing" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#bg-car-racing)" rx="16" />
+  <rect width="600" height="380" fill="url(#radial-car-racing)" rx="16" />
+  <rect width="600" height="380" fill="url(#grid-car-racing)" rx="16" />
+
+  <!-- Outer Tech Border -->
+  <rect x="12" y="12" width="576" height="356" rx="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <circle cx="28" cy="28" r="3" fill="#ef4444" opacity="0.8" />
+  <circle cx="572" cy="28" r="3" fill="#f59e0b" opacity="0.8" />
+  <circle cx="28" cy="352" r="3" fill="#ef4444" opacity="0.5" />
+  <circle cx="572" cy="352" r="3" fill="#f59e0b" opacity="0.5" />
+
+  <!-- Custom Game Visual Artwork -->
+  
+      <g filter="url(#glow-car-racing)" transform="translate(190, 60)">
+        <!-- Race Track Lines -->
+        <rect x="0" y="0" width="220" height="210" rx="14" fill="#0f172a" stroke="#ef4444" stroke-width="2" />
+        <line x1="110" y1="0" x2="110" y2="210" stroke="#fbbf24" stroke-width="4" stroke-dasharray="20 15" />
+
+        <!-- Cyber Racecar -->
+        <g transform="translate(85, 60)">
+          <!-- Wheels -->
+          <rect x="-8" y="15" width="10" height="24" rx="4" fill="#18181b" stroke="#ef4444" stroke-width="1.5" />
+          <rect x="48" y="15" width="10" height="24" rx="4" fill="#18181b" stroke="#ef4444" stroke-width="1.5" />
+          <rect x="-8" y="65" width="10" height="24" rx="4" fill="#18181b" stroke="#ef4444" stroke-width="1.5" />
+          <rect x="48" y="65" width="10" height="24" rx="4" fill="#18181b" stroke="#ef4444" stroke-width="1.5" />
+
+          <!-- Body -->
+          <rect x="0" y="5" width="50" height="95" rx="14" fill="#dc2626" stroke="#fca5a5" stroke-width="2" />
+          <!-- Cockpit -->
+          <polygon points="10,35 40,35 34,65 16,65" fill="#0284c7" />
+          <!-- Nitro tail flame -->
+          <polygon points="18,100 25,125 32,100" fill="#f59e0b" />
+        </g>
+      </g>
+      <text x="300" y="325" font-family="'Space Grotesk', monospace" font-size="16" fill="#fca5a5" text-anchor="middle" letter-spacing="4">NITRO DRIFT OVERDRIVE</text>
+    
+
+  <!-- Tech Status Vignette Overlay -->
+  <path d="M 20 40 L 40 20 M 580 40 L 560 20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+</svg>

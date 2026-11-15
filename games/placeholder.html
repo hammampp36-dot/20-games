@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play Game | HAMMA ARCADE</title>
+  
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <style>
+    .player-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .player-main {
+      flex: 1;
+      padding: 30px 0 60px;
+      display: flex;
+      align-items: center;
+    }
+    .player-arena {
+      max-width: 840px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .arcade-cabinet {
+      background: #090c16;
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(168, 85, 247, 0.3);
+      position: relative;
+    }
+    .cabinet-header {
+      background: rgba(18, 22, 36, 0.98);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .cabinet-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+    .score-hud {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+    .score-badge {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .score-badge strong {
+      color: #38bdf8;
+      font-size: 1.15rem;
+    }
+    .viewport-screen {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      background: #080a12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #game-canvas {
+      display: block;
+      background: #080a12;
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .scanlines-fx {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.25)
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Mobile On-Screen D-Pad & Controls */
+    .mobile-controls-panel {
+      background: rgba(14, 17, 28, 0.95);
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .dpad-cluster {
+      display: grid;
+      grid-template-columns: repeat(3, 44px);
+      grid-template-rows: repeat(3, 44px);
+      gap: 4px;
+    }
+    .dpad-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .dpad-btn:active {
+      background: var(--accent-purple);
+      transform: scale(0.92);
+    }
+    .action-btn-cluster {
+      display: flex;
+      gap: 14px;
+    }
+    .action-btn-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--gradient-brand);
+      border: none;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+      touch-action: manipulation;
+    }
+    .action-btn-circle:active {
+      transform: scale(0.9);
+    }
+    .game-switch-select {
+      background: rgba(13, 16, 26, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      outline: none;
+    }
+  </style>
+</head>
+<body class="player-page">
+  <!-- Atmospheric Glows -->
+  <div class="bg-ambient">
+    <div class="ambient-glow ambient-glow-1"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="../index.html" class="brand">
+        <div class="brand-icon-wrapper">
+          <img src="../assets/icons/logo.svg" alt="HAMMA ARCADE Logo" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">HAMMA<span>ARCADE</span></span>
+          <span class="brand-subtitle">PLAYABLE ARENA</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="../index.html#games" class="btn btn-secondary btn-sm">
+          <i data-lucide="grid"></i> All 20 Games
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Playing Arena -->
+  <main class="player-main">
+    <div class="container player-arena">
+      <div class="arcade-cabinet">
+        <!-- Cabinet Header -->
+        <div class="cabinet-header">
+          <div class="cabinet-title-row">
+            <span class="live-dot"></span>
+            <div>
+              <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0;" id="arena-game-title">Snake Game</h2>
+              <span style="font-size: 0.72rem; color: var(--accent-cyan); font-family: var(--font-mono);" id="arena-game-meta">ARCADE CLASSIC</span>
+            </div>
+          </div>
+
+          <div class="score-hud">
+            <div class="score-badge">
+              <span>SCORE</span>
+              <strong id="active-game-score">0</strong>
+            </div>
+            <div class="score-badge">
+              <span style="color: #facc15;">BEST</span>
+              <strong style="color: #facc15;" id="active-game-best">0</strong>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="arena-restart-btn">
+              <i data-lucide="rotate-ccw"></i> Restart
+            </button>
+          </div>
+        </div>
+
+        <!-- Viewport Screen -->
+        <div class="viewport-screen" id="viewport-container">
+          <canvas id="game-canvas" width="600" height="400"></canvas>
+          <div class="scanlines-fx"></div>
+        </div>
+
+        <!-- Mobile & Desktop On-Screen Gamepad Controls -->
+        <div class="mobile-controls-panel">
+          <!-- Quick Game Switcher -->
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">SWITCH GAME:</span>
+            <select id="game-selector" class="game-switch-select" aria-label="Select game to play">
+              <!-- Populated by JS -->
+            </select>
+          </div>
+
+          <!-- D-Pad Directional Controls -->
+          <div class="dpad-cluster">
+            <div></div>
+            <button class="dpad-btn" id="dpad-up" aria-label="Up"><i data-lucide="chevron-up"></i></button>
+            <div></div>
+            <button class="dpad-btn" id="dpad-left" aria-label="Left"><i data-lucide="chevron-left"></i></button>
+            <div style="background: rgba(255,255,255,0.02); border-radius: 6px;"></div>
+            <button class="dpad-btn" id="dpad-right" aria-label="Right"><i data-lucide="chevron-right"></i></button>
+            <div></div>
+            <button class="dpad-btn" id="dpad-down" aria-label="Down"><i data-lucide="chevron-down"></i></button>
+            <div></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-btn-cluster">
+            <button class="action-btn-circle" id="dpad-a" aria-label="Action A / Jump">A</button>
+            <button class="action-btn-circle" id="dpad-b" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);" aria-label="Action B / Attack">B</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 24px 0;">
+    <div class="container footer-bottom" style="padding-top: 0; border: none;">
+      <p>&copy; 2026 HAMMA ARCADE. All 20 games are 100% interactive &amp; playable.</p>
+      <div class="footer-bottom-links">
+        <a href="../index.html">Arcade Home</a>
+        <a href="../index.html#games">Catalog</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/games-data.js"></script>
+  <script src="../js/arcade-games-runner.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      const viewport = document.getElementById('viewport-container');
+      const canvas = document.getElementById('game-canvas');
+      const titleEl = document.getElementById('arena-game-title');
+      const metaEl = document.getElementById('arena-game-meta');
+      const selector = document.getElementById('game-selector');
+      const restartBtn = document.getElementById('arena-restart-btn');
+
+      // Populate game switcher
+      if (window.ArcadeData && window.ArcadeData.games) {
+        window.ArcadeData.games.forEach(g => {
+          const opt = document.createElement('option');
+          opt.value = g.id;
+          opt.textContent = `${g.title} (${g.category})`;
+          selector.appendChild(opt);
+        });
+      }
+
+      // Read current game from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      let activeGameId = urlParams.get('id') || 'snake-game';
+      selector.value = activeGameId;
+
+      function startSelectedGame(gameId) {
+        activeGameId = gameId;
+        const gameInfo = window.ArcadeData.getGameById(gameId);
+        if (gameInfo) {
+          titleEl.textContent = gameInfo.title;
+          metaEl.textContent = `${gameInfo.category.toUpperCase()} • ${gameInfo.controls.toUpperCase()}`;
+          document.title = `Play ${gameInfo.title} | HAMMA ARCADE`;
+        }
+
+        window.ArcadeRunner.launch(gameId, viewport, canvas);
+      }
+
+      // Game switcher change event
+      selector.addEventListener('change', (e) => {
+        const newGame = e.target.value;
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('id', newGame);
+        window.history.pushState({}, '', newUrl);
+        startSelectedGame(newGame);
+      });
+
+      // Restart button
+      restartBtn.addEventListener('click', () => {
+        startSelectedGame(activeGameId);
+      });
+
+      // Bind On-Screen D-Pad to Game Runner
+      function triggerKey(key) {
+        window.dispatchEvent(new KeyboardEvent('keydown', { key: key }));
+        setTimeout(() => {
+          window.dispatchEvent(new KeyboardEvent('keyup', { key: key }));
+        }, 100);
+      }
+
+      document.getElementById('dpad-up').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey('ArrowUp'); });
+      document.getElementById('dpad-down').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey('ArrowDown'); });
+      document.getElementById('dpad-left').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey('ArrowLeft'); });
+      document.getElementById('dpad-right').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey('ArrowRight'); });
+      document.getElementById('dpad-a').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey(' '); });
+      document.getElementById('dpad-b').addEventListener('pointerdown', (e) => { e.preventDefault(); triggerKey('z'); });
+
+      // Start initial game
+      startSelectedGame(activeGameId);
+    });
+  </script>
+</body>
+</html>
